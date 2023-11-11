@@ -1,0 +1,80 @@
+@import '../variables';
+
+.categories {
+  position: relative;
+
+  &-mobile {
+    display: none;
+    width: 210px;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+
+    svg {
+      margin-right: 8px;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+
+    span {
+      color: $orange;
+      border-bottom: 1px dashed $orange;
+      cursor: pointer;
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+    }
+  }
+  ul {
+    display: flex;
+
+    @media (max-width: 1200px) {
+      display: none;
+
+      position: absolute;
+      left: 40px;
+      margin-top: 15px;
+      background: #ffffff;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 10px 0;
+      width: 160px;
+    }
+
+    li {
+      background-color: #f9f9f9;
+      padding: 13px 30px;
+      border-radius: 30px;
+      margin-right: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.1s ease-in-out;
+      @include noselect();
+
+      @media (max-width: 1200px) {
+        border-radius: 0;
+        margin-right: 0;
+        font-weight: bold;
+      }
+
+      &:hover {
+        background-color: darken(#f9f9f9, 2%);
+      }
+
+      &:active {
+        background-color: darken(#f9f9f9, 5%);
+      }
+
+      &.active {
+        background-color: #282828;
+        color: #fff;
+      }
+
+ 
+    }
+  }
+}

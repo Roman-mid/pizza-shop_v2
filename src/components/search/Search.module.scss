@@ -1,0 +1,47 @@
+.search {
+    position: relative;
+    @media (max-width: 600px) {
+        display: none;
+    }
+
+    input {
+        width: 250px;
+        font-size: 16px;
+        padding: 5px 30px;
+        border: 2px solid rgba( 0, 0, 0, 0.1);
+        border-radius: 5px;
+        transition: 0.3s;
+ 
+        &:focus {
+            border: 2px solid rgba( 0, 0, 0, 0.2);
+        }
+
+        &::placeholder {
+            opacity: 0.3;
+        }
+    }
+
+    svg {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        opacity: 0.3;
+    }
+
+    .searchIcon {
+        top: 8px;
+        left: 7px;
+    }
+
+    .clearIcon {
+        top: 9px;
+        right: 10px;
+        width: 16px;
+        height: 16px;
+
+        &:hover {
+            opacity: 0.6;
+            cursor:  pointer;
+        }
+    }
+}
