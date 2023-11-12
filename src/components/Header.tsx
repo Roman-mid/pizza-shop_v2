@@ -31,7 +31,7 @@ const Header: React.FC = React.memo(() => {
         <img width="38" src={logo} alt="Pizza logo" />
         <div>
           <h1>React Pizza</h1>
-          <p>the most delicious pizza in the universe</p>
+          <p>the most delicious pizza in the world</p>
         </div>
       </div>
       </Link>

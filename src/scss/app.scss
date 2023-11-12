@@ -25,6 +25,8 @@ body {
 
 .content {
   padding: 40px 0;
+  min-height: 665px;
+  display: flex;
 
   &__error-info {
     text-align: center;
@@ -99,6 +101,10 @@ body {
 }
 
 .cart {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -107,6 +113,7 @@ body {
 
   .content__items {
     display: block;
+    flex: 1 1 auto;
   }
 
   
@@ -314,7 +321,7 @@ body {
   }
 
   &__bottom {
-    margin: 50px 0;
+    margin-top: 50px;
 
     &-details {
       display: flex;
@@ -448,6 +455,7 @@ body {
       padding: 12px 0 14px;
       width: 230px;
       margin: 0 auto;
+      margin-top: 50px;
       font-weight: 600;
       font-size: 18px;
     }

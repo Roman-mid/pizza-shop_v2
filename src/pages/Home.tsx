@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-// import { useNavigate } from "react-router-dom";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -26,10 +25,6 @@ const categoriesName = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Mixed'];
 
 const Home: React.FC = () => {
 
-  // const isSearch = React.useRef(false);
-  // const isMounted = React.useRef(false);
-
-  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const { categoryId, sortType } = useSelector((state: RootState) => state.filter);

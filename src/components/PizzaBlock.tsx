@@ -8,14 +8,13 @@ import { PizzaBlockType } from "../redux/slices/pizzasSlice";
 const pizzaTypes = ['Slim', 'Traditional'];
 
 const PizzaBlock: React.FC<PizzaBlockType> = ({ id, name, imageUrl, types, sizes, price }) => {
-
   const dispatch = useDispatch();
   
   const cartItem = useSelector((state: RootState) => state.itemsInCart.pizzas.find((obj) => obj.id === id));
   const addedPizza = cartItem ? cartItem.countId : 0;
 
 
-  const [pizzaTypeActive, setPizzaTypeActive] = React.useState(0);
+  const [pizzaTypeActive, setPizzaTypeActive] = React.useState(types[0]);
   const [pizzaSizeActive, setPizzaSizeActive] = React.useState(0);
 
   const onPizzaType = (ind: number) => setPizzaTypeActive(ind);
@@ -36,7 +35,6 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({ id, name, imageUrl, types, sizes
     dispatch(addPizza(pizza))
   };
 
-
   return (
    <div className="pizza-block-wrapper">
      <div className="pizza-block">
@@ -53,16 +51,16 @@ const PizzaBlock: React.FC<PizzaBlockType> = ({ id, name, imageUrl, types, sizes
             className={type === pizzaTypeActive ? 'active' : ''}
             onClick={() => onPizzaType(type)}
             >
-                {pizzaTypes[type]}
+              {pizzaTypes[type]}
             </li>)}
         </ul>
         <ul>
             {sizes.map((size, ind) => <li 
-                key={size}
-                className={ind === pizzaSizeActive ? 'active' : ''}
-                onClick={() => onPizzaSize(ind)}
+              key={size}
+              className={ind === pizzaSizeActive ? 'active' : ''}
+              onClick={() => onPizzaSize(ind)}
             >
-                {size} cm
+              {size} cm
             </li>)}
         </ul>
       </div>
