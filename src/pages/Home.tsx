@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -21,13 +21,15 @@ type PizzaBlockType = {
   price: number[];
 };
 
+const categoriesName = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Mixed'];
+
 
 const Home: React.FC = () => {
 
-  const isSearch = React.useRef(false);
-  const isMounted = React.useRef(false);
+  // const isSearch = React.useRef(false);
+  // const isMounted = React.useRef(false);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const { categoryId, sortType } = useSelector((state: RootState) => state.filter);
@@ -38,51 +40,6 @@ const Home: React.FC = () => {
   React.useEffect(() => {
     getPizzas();
   }, [categoryId, sortType.sortProperty, searchValue]);
-
-
-/*   React.useEffect(() => {
-    if(window.location.search) {
-      const params = qs.parse(window.location.search.replace('?', '')) as unknown as SearchPizzaParams;
-
-      const sortType = sortNames.find(obj => obj.sortProperty === params.sortBy);
-
-      dispatch(
-        setFilters({
-          searchValue: params.category,
-          categoryId: Number(params.category),
-          sortType: sortType || sortNames[0],
-        }));
-      isSearch.current = true;
-    }
-
-  }, []); */
-
-
-/*   React.useEffect(() => {
-    window.scrollTo(0, 0);
-
-    if(!isSearch.current) {
-      getPizzas()
-    };
-
-    isSearch.current = false;
-
-  }, [categoryId, sortType]); */
-  
-
-/*   React.useEffect(() => {
-    if(isMounted.current) {
-
-      const queryString = qs.stringify({
-        sortProperty: sortType.sortProperty,
-        categoryId,
-      });
-      
-      navigate(`?${queryString}`)
-    };
-
-    isMounted.current = true;
-  }, [categoryId, sortType]); */
 
   const getPizzas = () => {
     const category = categoryId > 0 ? `category=${categoryId}` : '';
@@ -108,7 +65,7 @@ const Home: React.FC = () => {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories categoryId={categoryId} onClickCategoty={(ind: number) => onClickCategoty(ind)}/>
+        <Categories categoryId={categoryId} categoriesName={categoriesName} onClickCategoty={(ind: number) => onClickCategoty(ind)}/>
         <Sort />
       </div>
       {status === 'error' 
@@ -117,7 +74,7 @@ const Home: React.FC = () => {
             <p>Please try again later</p>
           </div>
         : <>
-            <h1 className="content__title">All pizzas</h1>
+            <h1 className="content__title">{`${categoriesName[categoryId]} pizzas`}</h1>
             <div className="content__items">
               {status === 'loading' ? pizzasSceleton : pizzasItems}
             </div>

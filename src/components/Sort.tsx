@@ -61,6 +61,7 @@ const Sort: React.FC = React.memo(() => {
     <div className="sort">
       <div className="sort__label">
         <svg
+          style={activeSort ? {'transform': 'rotate(0deg)'} : {}}
           width="10"
           height="6"
           viewBox="0 0 10 6"
@@ -72,7 +73,7 @@ const Sort: React.FC = React.memo(() => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Sort pizzas by:</b>
+        <b>Sort pizzas:</b>
         <span 
           className="sort__span" 
           onClick={() => setActiveSort(!activeSort)}

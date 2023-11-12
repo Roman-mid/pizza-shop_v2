@@ -39,7 +39,7 @@ const Header: React.FC = React.memo(() => {
       { pathname !== '/cart' && < Search /> }
       
       <div className="header__cart">
-        <Link to="cart" className="button button--cart">
+        { <Link to={pathname !== "/cart" ? 'cart' : '/'} className="button button--cart">
           <span>{price} £</span>
           <div className="button__delimiter"></div>
           <svg
@@ -72,7 +72,7 @@ const Header: React.FC = React.memo(() => {
             />
           </svg>
           <span>{ allCount }</span>
-        </Link>
+        </Link>}
       </div>
     </div>
   </div>
