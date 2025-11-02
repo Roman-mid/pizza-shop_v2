@@ -1,5 +1,7 @@
 ## React Pizza Shop
 
+React Pizza Shop — an single-page application (SPA) developed using React and Redux Toolkit.
+The project was initially created in JavaScript and later refactored into TypeScript to improve maintainability and type safety.
 
 ### Key Features
 - Add and remove items from the cart </br>
